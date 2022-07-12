@@ -7,3 +7,129 @@
 .montserrat {
   font-family: "Montserrat", sans-serif;
 }
+
+.header-3-2 .btn-no-fill,
+.header-3-2 .text-black-2 {
+  color: #303030;
+  transition: 0.3s;
+}
+
+.header-3-2 .btn-no-fill:hover,
+.header-3-2 .text-black-1 {
+  color: #243142;
+  transition: 0.3s;
+}
+
+.header-3-2 .text-gray-1 {
+  color: #aaa6a6;
+}
+
+.header-3-2 .btn-outline:hover {
+  border: 1px solid ##199cd8;
+  color: ##199cd8;
+  transition: 0.3s;
+}
+
+.header-3-2 .card {
+  box-shadow: -4px 4px 10px 0px rgba(224, 224, 224, 0.25);
+  transition: 0.4s;
+  top: 0px;
+  left: 0px;
+  position: relative;
+}
+
+.header-3-2 .card:hover {
+  box-shadow: -4px 8px 15px 0px rgba(167, 167, 167, 0.25);
+  top: -3px;
+  left: -3px;
+  position: relative;
+  transition: 0.4s;
+}
+
+.header-3-2 .navigation .active {
+  position: relative;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  transition: 0.3s;
+}
+
+.navigation .active:before {
+  content: "";
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: 0;
+  height: 0px;
+  width: 80%;
+  border-bottom: 2px solid ##199cd8;
+}
+
+.header-3-2 .btn-fill {
+  border: 1px solid ##199cd8;
+  background-color: ##199cd8;
+  transition: 0.3s;
+}
+
+.header-3-2 .btn-fill:hover {
+  background-color: ##199cd8;
+  border: 1px solid ##199cd8;
+}
+
+.header-3-2 .btn-outline {
+  border: 1px solid #8a807b;
+  color: #8a807b;
+  transition: 0.3s;
+}
+
+.header-3-2 .btn-outline:hover div path {
+  fill: ##199cd8;
+}
+
+.header-3-2 .btn-outline:hover div rect {
+  stroke: ##199cd8;
+}
+
+.header-3-2 .navigation a:hover {
+  color: #243142 !important;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.header-3-2 #form {
+  width: 100%;
+}
+
+.header-3-2 #form input[type="text"] {
+  width: 100%;
+  background-color: #fff3f2;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 0.375rem 0.5rem;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.header-3-2 .search-icon:hover path {
+  fill: #243142;
+}
+
+@media (max-width: 1023px) {
+  .header-3-2 #form input[type="text"] {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-3-2 .center-search {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .header-3-2 #form {
+    width: 320px;
+  }
+}

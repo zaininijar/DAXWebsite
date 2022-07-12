@@ -1,98 +1,880 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/output.css" rel="stylesheet" />
+    <link href="../dist/custom.css" rel="stylesheet" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="../dist/output.css" rel="stylesheet" />
-  <link href="../dist/custom.css" rel="stylesheet" />
-</head>
-
-<body class="montserrat">
-  <header class="fixed w-full">
-    <nav class="text-white py-8 container">
-      <div class="flex flex-wrap justify-between items-center">
-        <a href="#" class="flex items-center">
-          <img src="../assets/icon/logo-white.png" class="mr-3 h-6 sm:h-9" />
-          <span class="self-center whitespace-nowrap">
-            <span class="font-extrabold text-2xl">D<span class="font-light">.</span>A<span
-                class="font-light">.</span>X</span>
-            <span class="font-light">perience</span>
-          </span>
-        </a>
-        <div class="flex md:hidden items-center lg:order-2">
-          <button data-collapse-toggle="mobile-menu-2" type="button"
-            class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="mobile-menu-2" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"></path>
+  <body class="montserrat">
+    <!-- Navbar -->
+    <div class="bg-transparent fixed z-20 w-full">
+      <header
+        x-data="{ open: false }"
+        class="w-full flex justify-between py-4 lg:px-24 md:px-16 sm:px-8 px-8"
+      >
+        <div class="flex items-center justify-between w-full lg:w-auto">
+          <a href="#" class="flex items-center text-white">
+            <img src="../assets/icon/logo-white.png" class="mr-3 h-6 sm:h-9" />
+            <span class="self-center whitespace-nowrap">
+              <span class="font-extrabold text-2xl"
+                >D<span class="font-light">.</span>A<span class="font-light"
+                  >.</span
+                >X</span
+              >
+              <span class="font-light">perience</span>
+            </span>
+          </a>
+          <div class="flex justify-end items-center lg:hidden cursor-pointer">
+            <svg
+              class="w-6 h-6 invert"
+              @click="open = !open"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
             </svg>
-            <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd"></path>
-            </svg>
-          </button>
+          </div>
         </div>
-        <div class="hidden items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-          <ul class="flex flex-col mt-4 font-medium text-sm lg:flex-row lg:mt-0">
-            <li>
-              <a href="#"
-                class="block text-xs hover:border-white hover:text-green-300 py-2 px-4 border border-transparent text-white"
-                aria-current="page">HOME</a>
-            </li>
-            <li>
-              <a href="#"
-                class="block text-xs hover:border-white hover:text-green-300 py-2 px-4 border border-transparent text-white">OUR
-                SOLUTIONS</a>
-            </li>
-            <li>
-              <a href="#"
-                class="block text-xs hover:border-white hover:text-green-300 py-2 px-4 border border-transparent text-white">OUR
-                CLIENTS</a>
-            </li>
-            <li>
-              <a href="#"
-                class="block text-xs hover:border-white hover:text-green-300 py-2 px-4 border border-transparent text-white">WHO
-                WE ARE</a>
-            </li>
-            <li>
-              <a href="#"
-                class="block text-xs hover:border-white hover:text-green-300 py-2 px-4 border border-transparent text-white">NEWS
-                & ARTICLES</a>
-            </li>
-            <li>
-              <a href="#"
-                class="block text-xs hover:border-white hover:text-green-300 py-2 px-4 border border-transparent text-white">CAREERS</a>
-            </li>
-            <li>
-              <a href="#"
-                class="block text-xs hover:border-white hover:text-green-300 py-2 px-4 border border-transparent text-white">CONTACT
-                US</a>
-            </li>
-          </ul>
+        <!-- Backdrop -->
+        <!-- Backdop -->
+        <div
+          :class="{'hidden': !open}"
+          class="bg-black fixed hidden w-full h-full top-0 left-0 z-30 bg-opacity-60"
+          @click="open = !open"
+        ></div>
+        <nav
+          :class="{'flex': open, 'hidden': !open}"
+          class="hidden z-50 fixed left-3 right-3 rounded-md shadow-md flex-col p-8 justify-end navigation items-start lg:shadow-none lg:bg-transparent lg:p-0 lg:items-center lg:flex lg:flex-row lg:relative lg:space-x-7 bg-white"
+        >
+          <a href="#" class="flex items-center m-0 lg:hidden mb-3">
+            <img src="../assets/icon/logo.png" class="mr-3 h-6 sm:h-9" />
+            <span class="self-center whitespace-nowrap">
+              <span class="font-extrabold text-2xl"
+                >D<span class="font-light">.</span>A<span class="font-light"
+                  >.</span
+                >X</span
+              >
+              <span class="font-light">perience</span>
+            </span>
+          </a>
+          <a
+            href="#"
+            class="xl:text-sm text-xs lg:text-white font-medium mx-0 lg:mx-5 my-4 lg:my-0 relative active"
+            >HOME</a
+          >
+          <a
+            href="#"
+            class="xl:text-sm text-xs lg:text-white font-light mx-0 lg:mx-5 my-4 lg:my-0 relative"
+            >OUR SOLUTIONS</a
+          >
+          <a
+            href="#"
+            class="xl:text-sm text-xs lg:text-white font-light mx-0 lg:mx-5 my-4 lg:my-0 relative"
+            >OUR CLIENTS</a
+          >
+          <a
+            href="#"
+            class="xl:text-sm text-xs lg:text-white font-light mx-0 lg:mx-5 my-4 lg:my-0 relative"
+            >WHO WE ARE</a
+          >
+          <a
+            href="#"
+            class="xl:text-sm text-xs lg:text-white font-light mx-0 lg:mx-5 my-4 lg:my-0 relative"
+            >CAREERS</a
+          >
+          <a
+            href="#"
+            class="xl:text-sm text-xs lg:text-white font-light mx-0 lg:mx-5 my-4 lg:my-0 relative"
+            >CONTACT US</a
+          >
+          <svg
+            @click="open = !open"
+            class="w-6 h-6 absolute top-4 right-4 cursor-pointer lg:hidden"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </nav>
+      </header>
+    </div>
+
+    <section
+      class="min-h-screen h-[120vh] flex items-center justify-start text-white bg-[url('./../assets/img/bg-header.png')] bg-no-repeat bg-left lg:bg-center bg-cover min-w-screen p-0"
+    >
+      <div
+        class="block md:mt-0 -mt-32 lg:px-24 md:px-16 sm:px-8 px-8 md:text-left text-center w-full"
+      >
+        <img
+          class="absolute hidden md:block top-40 right-1/3 lg:right-1/2"
+          src="./../assets/icon/call.png"
+          alt=""
+        />
+        <h5 class="text-xl md:text-3xl mb-6 md:mb-8 font-light">Welcome to</h5>
+        <h1 class="text-4xl md:text-6xl mb-4 md:mb-8 font-bold">
+          Data Arts Xperience
+        </h1>
+        <p class="text-lg md:text-3xl leading-normal md:leading-10 font-light">
+          Best Marketing <br />
+          & Technology Consultant <br />
+          for your growth.
+        </p>
+        <img
+          class="absolute left-56 md:left-52 -bottom-8 cursor-pointer"
+          src="./../assets/icon/arrow-b-white.png"
+          alt=""
+        />
+      </div>
+    </section>
+
+    <section
+      class="mt-3 lg:px-24 md:px-16 sm:px-8 px-8 py-8 text-[#199cd8] relative"
+    >
+      <div class="grid grid-cols-1 text-center lg:grid-cols-3 py-4">
+        <div class="row-span-1 text-xl mb-16 lg:mb-0">
+          <h3 class="mb-8">
+            If you have know us, then let us know a little bit more about you,
+            and...
+            <br />
+            <span class="font-bold">let's get started.</span>
+          </h3>
+          <h3>
+            Or you can
+            <br />
+            <span class="font-bold">get to know us more.</span>
+          </h3>
+        </div>
+        <div class="row-span-1">
+          <form class="flex flex-col px-0 lg:px-8" action="">
+            <input
+              class="border border-1 border-gray-400 mb-2 text-sm px-2 py-1 placeholder:text-[#199cd8]"
+              type="text"
+              placeholder="Your Name *"
+            />
+            <input
+              class="border border-1 border-gray-400 mb-2 text-sm px-2 py-1 placeholder:text-[#199cd8]"
+              type="text"
+              placeholder="Company Name *"
+            />
+            <select
+              name=""
+              id=""
+              class="border border-1 border-gray-400 mb-2 text-sm px-2 py-1 placeholder:text-[#199cd8]"
+            >
+              <option value="">--Chopse Country*--</option>
+              <option value="">Country 1</option>
+              <option value="">Country 2</option>
+              <option value="">Country 3</option>
+            </select>
+            <select
+              name=""
+              id=""
+              class="border border-1 border-gray-400 mb-2 text-sm px-2 py-1 placeholder:text-[#199cd8]"
+            >
+              <option value="">--Chopse City*--</option>
+              <option value="">City 1</option>
+              <option value="">City 2</option>
+              <option value="">City 3</option>
+            </select>
+            <div class="flex">
+              <input
+                class="border w-1/3 border-1 border-gray-400 mb-2 text-sm px-2 py-1 placeholder:text-[#199cd8]"
+                type="text"
+                placeholder="Country Code *"
+              />
+              <input
+                class="border w-2/3 border-1 border-gray-400 mb-2 text-sm px-2 py-1 placeholder:text-[#199cd8]"
+                type="text"
+                placeholder="Mobile Number *"
+              />
+            </div>
+            <input
+              class="border border-1 border-gray-400 mb-2 text-sm px-2 py-1 placeholder:text-[#199cd8]"
+              type="text"
+              placeholder="Email Address *"
+            />
+          </form>
+        </div>
+        <div class="row-span-1 flex items-center mt-12 lg:mt-0">
+          <div
+            class="bg-[#199cd8] hidden overflow-x-hidden lg:flex absolute w-[30vw] right-0 px-16"
+          >
+            <div class="text-left flex flex-col justify-center">
+              <h1 class="text-xl text-white -mb-2 ml-5">Or you can</h1>
+              <a class="" href="">
+                <img src="../assets/icon/wa.png" alt="" />
+              </a>
+            </div>
+            <img
+              class="-mr-36 mb-2 mt-2"
+              src="../assets/icon/logo-white.png"
+              alt=""
+            />
+          </div>
+          <div
+            class="bg-[#199cd8] flex lg:hidden justify-center w-full right-0 px-16 relative pt-4 pb-16"
+          >
+            <div class="text-left flex flex-col justify-center">
+              <h1 class="text-xl ml-4 text-white mt-4 -mb-4">Or you can</h1>
+              <a class="-mb-4 mt-4" href="">
+                <img src="../assets/icon/wa.png" alt="" />
+              </a>
+            </div>
+            <img
+              class="mb-2 mt-2 absolute right-0"
+              src="../assets/icon/logo-white.png"
+              alt=""
+            />
+          </div>
         </div>
       </div>
-    </nav>
-  </header>
+      <img
+        class="absolute -bottom-12 left-16 z-10"
+        src="../assets/icon/bottom.png"
+        alt=""
+      />
+    </section>
+    <section
+      x-data="{ open: false }"
+      class="bg-[#199cd8] relative lg:px-24 md:px-16 sm:px-8 px-8 pt-32 text-white"
+    >
+      <h1 class="text-2xl">OUR SOLUTIONS</h1>
+      <div class="flex justify-end" x-bind:class="! open ? '' : 'hidden'">
+        <button
+          @click="open = false"
+          class="text-[#a0c12a] border-white -mb-[1px] border-b-transparent border-r-transparent border text-bold bg-[#199cd8] px-3 py-2"
+        >
+          PRODUCTS
+        </button>
+        <button
+          @click="open = true"
+          class="text-white border-white -mb-[1px] border text-bold bg-[#333333] px-3 py-2"
+        >
+          SERVICES
+        </button>
+      </div>
+      <div class="flex justify-end" x-bind:class="! open ? 'hidden' : ''">
+        <button
+          @click="open = false"
+          class="text-white border-white -mb-[1px] border text-bold bg-[#333333] px-3 py-2"
+        >
+          PRODUCTS
+        </button>
+        <button
+          @click="open = true"
+          class="text-[#a0c12a] border-white -mb-[1px] border-b-transparent border-l-transparent border text-bold bg-[#199cd8] px-3 py-2"
+        >
+          SERVICES
+        </button>
+      </div>
+      <div
+        x-show="!open"
+        class="border border-white border-1 p-8 grid grid-cols-2 gap-8"
+      >
+        <div class="bg-[#333333] col-span-1 px-8 py-16 relative">
+          <div>
+            <h1 class="text-lg text-[#21b6a7] font-bold">CDP Products 1</h1>
+            <img class="mt-12" src="../assets/icon/globe.png" alt="" />
+          </div>
+          <div
+            class="bg-[#333333] hover:opacity-100 p-8 opacity-0 duration-300 absolute inset-0"
+          >
+            <h1 class="text-lg text-[#21b6a7] font-bold">CDP Products 1</h1>
+            <p class="mt-4 text-sm">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+              tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+              consequat. Duis autem vel eum iriure dolor
+            </p>
+            <a
+              class="text-white border-white mt-8 border flex justify-between items-center px-2 h-8 w-44 relative"
+              href=""
+            >
+              <span class="text-xs">More details</span
+              ><img
+                class="-rotate-90 w-3 absolute right-10"
+                src="../assets/icon/arrow-r-white.png"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+        <div class="bg-[#333333] col-span-1 px-8 py-16 relative">
+          <div>
+            <h1 class="text-lg text-[#21b6a7] font-bold">CDP Products 1</h1>
+            <img class="mt-12" src="../assets/icon/globe.png" alt="" />
+          </div>
+          <div
+            class="bg-[#333333] hover:opacity-100 p-8 opacity-0 duration-300 absolute inset-0"
+          >
+            <h1 class="text-lg text-[#21b6a7] font-bold">CDP Products 1</h1>
+            <p class="mt-4 text-sm">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+              tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+              consequat. Duis autem vel eum iriure dolor
+            </p>
+            <a
+              class="text-white border-white mt-8 border flex justify-between items-center px-2 h-8 w-44 relative"
+              href=""
+            >
+              <span class="text-xs">More details</span
+              ><img
+                class="-rotate-90 w-3 absolute right-10"
+                src="../assets/icon/arrow-r-white.png"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        x-show="open"
+        class="border border-white border-1 p-8 grid grid-cols-3 gap-8"
+      >
+        <div class="bg-[#333333] col-span-1 p-8 py-16 relative">
+          <div>
+            <h1 class="text-lg text-[#a0c12a] font-bold">Services 1</h1>
+            <img class="mt-12" src="../assets/icon/globe.png" alt="" />
+          </div>
+          <div
+            class="bg-[#333333] hover:opacity-100 p-8 opacity-0 duration-300 absolute inset-0"
+          >
+            <h1 class="text-lg text-[#a0c12a] font-bold">Services 1</h1>
+            <p class="mt-4 text-sm">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad
+            </p>
+            <a
+              class="text-white border-white mt-8 border flex justify-between items-center px-2 h-8 w-44 relative"
+              href=""
+            >
+              <span class="text-xs">More details</span
+              ><img
+                class="-rotate-90 w-3 absolute right-10"
+                src="../assets/icon/arrow-r-white.png"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
 
-  <section
-    class="min-h-screen h-[110vh] flex items-center justify-start text-white bg-[url('./../assets/img/bg-header.png')] bg-no-repeat bg-center bg-cover min-w-screen p-0">
-    <div class="block container">
-      <img class="absolute top-40 right-1/2" src="./../assets/icon/call.png" alt="" />
-      <h5 class="text-3xl mb-8 font-light">Welcome to</h5>
-      <h1 class="text-6xl mb-8 font-bold">Data Arts Xperience</h1>
-      <p class="text-3xl mb-8 leading-10 font-light">
-        Best Marketing <br />
-        & Technology Consultant <br />
-        for your growth.
-      </p>
-      <img class="absolute left-52 bottom-12 cursor-pointer" src="./../assets/icon/arrow-b-white.png" alt="" />
+        <div class="bg-[#333333] col-span-1 p-8 py-16 relative">
+          <div>
+            <h1 class="text-lg text-[#a0c12a] font-bold">Services 2</h1>
+            <img class="mt-12" src="../assets/icon/globe.png" alt="" />
+          </div>
+          <div
+            class="bg-[#333333] hover:opacity-100 p-8 opacity-0 duration-300 absolute inset-0"
+          >
+            <h1 class="text-lg text-[#a0c12a] font-bold">Services 2</h1>
+            <p class="mt-4 text-sm">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad
+            </p>
+            <a
+              class="text-white border-white mt-8 border flex justify-between items-center px-2 h-8 w-44 relative"
+              href=""
+            >
+              <span class="text-xs">More details</span
+              ><img
+                class="-rotate-90 w-3 absolute right-10"
+                src="../assets/icon/arrow-r-white.png"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-[#333333] col-span-1 p-8 py-16 relative">
+          <div>
+            <h1 class="text-lg text-[#a0c12a] font-bold">Services 3</h1>
+            <img class="mt-12" src="../assets/icon/globe.png" alt="" />
+          </div>
+          <div
+            class="bg-[#333333] hover:opacity-100 p-8 opacity-0 duration-300 absolute inset-0"
+          >
+            <h1 class="text-lg text-[#a0c12a] font-bold">Services 3</h1>
+            <p class="mt-4 text-sm">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad
+            </p>
+            <a
+              class="text-white border-white mt-8 border flex justify-between items-center px-2 h-8 w-44 relative"
+              href=""
+            >
+              <span class="text-xs">More details</span
+              ><img
+                class="-rotate-90 w-3 absolute right-10"
+                src="../assets/icon/arrow-r-white.png"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-[#333333] col-span-1 p-8 py-16 relative">
+          <div>
+            <h1 class="text-lg text-[#a0c12a] font-bold">Services 4</h1>
+            <img class="mt-12" src="../assets/icon/globe.png" alt="" />
+          </div>
+          <div
+            class="bg-[#333333] hover:opacity-100 p-8 opacity-0 duration-300 absolute inset-0"
+          >
+            <h1 class="text-lg text-[#a0c12a] font-bold">Services 4</h1>
+            <p class="mt-4 text-sm">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad
+            </p>
+            <a
+              class="text-white border-white mt-8 border flex justify-between items-center px-2 h-8 w-44 relative"
+              href=""
+            >
+              <span class="text-xs">More details</span
+              ><img
+                class="-rotate-90 w-3 absolute right-10"
+                src="../assets/icon/arrow-r-white.png"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-[#333333] col-span-1 p-8 py-16 relative">
+          <div>
+            <h1 class="text-lg text-[#a0c12a] font-bold">Services 5</h1>
+            <img class="mt-12" src="../assets/icon/globe.png" alt="" />
+          </div>
+          <div
+            class="bg-[#333333] hover:opacity-100 p-8 opacity-0 duration-300 absolute inset-0"
+          >
+            <h1 class="text-lg text-[#a0c12a] font-bold">Services 5</h1>
+            <p class="mt-4 text-sm">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad
+            </p>
+            <a
+              class="text-white border-white mt-8 border flex justify-between items-center px-2 h-8 w-44 relative"
+              href=""
+            >
+              <span class="text-xs">More details</span
+              ><img
+                class="-rotate-90 w-3 absolute right-10"
+                src="../assets/icon/arrow-r-white.png"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-16 mt-32">
+        <div class="colspan-1 flex">
+          <div class="self-center">
+            <h1 class="text-2xl">WHY <span class="font-bold">DAX</span> ?</h1>
+            <p class="text-2xl mt-8 pr-4">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad minim veniam,
+            </p>
+          </div>
+        </div>
+        <div class="colspan-1 bg-[#333333] p-16 grid grid-rows-3 pb-32">
+          <div class="row-span-1 py-8 border-r-2 border-[#199cd8] pr-16">
+            <h1 class="text-lg text-[#199cd8] font-bold">Reason 1</h1>
+            <p class="mt-4 text-sm">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad minim
+            </p>
+          </div>
+          <div class="row-span-1 py-8 border-r-2 border-white pr-16">
+            <h1 class="text-lg text-[#199cd8] font-bold">Reason 2</h1>
+            <p class="mt-4 text-sm">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad minim
+            </p>
+          </div>
+          <div class="row-span-1 py-8 border-r-2 border-white pr-16">
+            <h1 class="text-lg text-[#199cd8] font-bold">Reason 3</h1>
+            <p class="mt-4 text-sm">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad minim
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        class="absolute bottom-0 left-0"
+        src="../assets/icon/logo-white.png"
+        alt=""
+      />
+    </section>
+
+    <section class="bg-white relative lg:px-24 md:px-16 sm:px-8 px-8 py-32">
+      <h1 class="text-2xl text-[#199CD8]">HOW IT WORKS ?</h1>
+      <div class="grid grid-cols-3 text-white gap-16 mt-16">
+        <div class="colspan-1 relative text-2xl p-8 bg-[#199CD8]">
+          <h1
+            class="text-[#2a5388] text-9xl font-extrabold absolute top-2 right-2"
+          >
+            1
+          </h1>
+          <p class="relative z-10">
+            Lorem ipsum1 dolor sit amet, consectetuer adipiscing elit, sed diam
+          </p>
+        </div>
+        <div class="colspan-1 relative text-2xl p-8 bg-[#4a4949]">
+          <h1
+            class="text-[#333333] text-9xl font-extrabold absolute top-2 right-2"
+          >
+            2
+          </h1>
+          <p class="relative z-10">
+            Lorem ipsum1 dolor sit amet, consectetuer adipiscing elit, sed diam
+          </p>
+        </div>
+        <div class="colspan-1 relative text-2xl p-8 bg-[#199CD8]">
+          <h1
+            class="text-[#2a6a88] text-9xl font-extrabold absolute top-2 right-2"
+          >
+            3
+          </h1>
+          <p class="relative z-10">
+            Lorem ipsum1 dolor sit amet, consectetuer adipiscing elit, sed diam
+          </p>
+        </div>
+      </div>
+      <hr class="bg-[#199cd8] h-[3px] w-full mt-16" />
+      <div class="flex flex-row items-center justify-center mt-24">
+        <div
+          class="py-2 bg-[#199cd8] px-16 text-sm text-center mx-4 leading-5 text-white"
+        >
+          CONTACT
+          <span class="font-bold">DAX</span>
+          <br />
+          NOW
+        </div>
+        <div
+          class="py-2 bg-[#199cd8] px-16 text-sm text-center mx-4 leading-5 text-white"
+        >
+          DOWNLOAD
+          <span class="font-bold">DAX</span>
+          <br />
+          COMPANY PROFILE
+        </div>
+      </div>
+      <img
+        class="absolute -bottom-12 left-15 z-10"
+        src="../assets/icon/bottom.png"
+        alt=""
+      />
+    </section>
+
+    <section
+      class="bg-[#333333] relative lg:px-24 md:px-16 sm:px-8 px-8 pt-32 pb-16 text-white"
+    >
+      <h1 class="text-2xl">OUR CLIENTS</h1>
+      <div class="grid my-24 grid-cols-5 gap-16 px-8 mx-auto">
+        <img src="../assets/icon/client1.png" alt="" />
+        <img src="../assets/icon/client2.png" alt="" />
+        <img src="../assets/icon/client3.png" alt="" />
+        <img src="../assets/icon/client4.png" alt="" />
+        <img src="../assets/icon/client5.png" alt="" />
+        <img src="../assets/icon/client6.png" alt="" />
+        <img src="../assets/icon/client7.png" alt="" />
+        <img src="../assets/icon/client8.png" alt="" />
+      </div>
+      <h1 class="text-xl text-right">and more...</h1>
+      <img
+        class="absolute -bottom-12 left-15 z-10"
+        src="../assets/icon/bottom-black.png"
+      />
+    </section>
+    <section
+      class="relative lg:px-24 md:px-16 sm:px-8 px-8 py-16 text-[#199cd8]"
+    >
+      <div class="grid my-24 grid-cols-2 gap-12 mx-auto">
+        <div>
+          <h1 class="text-2xl font-semibold">WHO WE ARE</h1>
+          <div class="text-xl mt-24 pr-8">
+            <span class="font-bold">DAX</span>
+            is part of the <span class="font-bold">Hakuhodo DY</span> and
+            <span class="font-bold">DAC Group Japan</span>. Has been well
+            established <span class="font-bold">since April 2015</span>, DAX are
+            a digital agency that specialize in data driven marketing to improve
+            our clients marketing activities in the digital area.
+          </div>
+        </div>
+        <img src="../assets/img/img.png" alt="" />
+      </div>
+    </section>
+    <section
+      class="bg-[#333333] relative lg:px-24 md:px-16 sm:px-8 px-8 pt-16 pb-32 text-white"
+    >
+      <h1 class="text-2xl">
+        <span class="text-[#199cd8] font-bold">DAX</span>
+        TEAM
+      </h1>
+      <div class="grid grid-cols-3 gap-16 mt-16">
+        <div
+          class="h-96 overflow-hidden relative bg-[url('../assets/img/person1.png')] flex items-end bg-contain bg-no-repeat bg-center"
+        >
+          <div
+            class="mx-5 bg-[#199cd8] opacity-0 hover:flex flex-col p-8 absolute inset-0 hover:opacity-90"
+          >
+            <h1 class="font-bold">Benny Chang</h1>
+            <hr />
+            <h1>Position</h1>
+            <p class="text-xs mt-5">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+              tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+              consequat. Duis autem vel eum iriure dolor in hendrerit in
+              vulputate velit esse molestie
+            </p>
+            <div class="flex justify-end mt-10 -mr-3">
+              <img src="../assets/icon/in.png" alt="" />
+            </div>
+          </div>
+          <div
+            class="mx-5 hover:bg-[#199cd8] -mb-2 py-8 px-5 bg-[url('../assets/icon/bg-img.png')] w-full"
+          >
+            <h1 class="font-bold">Benny Chang</h1>
+            <hr />
+            <h1>Position</h1>
+            <div class="flex justify-end">
+              <img src="../assets/icon/in.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="h-96 overflow-hidden relative bg-[url('../assets/img/person1.png')] flex items-end bg-contain bg-no-repeat bg-center"
+        >
+          <div
+            class="mx-5 bg-[#199cd8] opacity-0 hover:flex flex-col p-8 absolute inset-0 hover:opacity-90"
+          >
+            <h1 class="font-bold">Benny Chang</h1>
+            <hr />
+            <h1>Position</h1>
+            <p class="text-xs mt-5">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+              tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+              consequat. Duis autem vel eum iriure dolor in hendrerit in
+              vulputate velit esse molestie
+            </p>
+            <div class="flex justify-end mt-10 -mr-3">
+              <img src="../assets/icon/in.png" alt="" />
+            </div>
+          </div>
+          <div
+            class="mx-5 hover:bg-[#199cd8] -mb-2 py-8 px-5 bg-[url('../assets/icon/bg-img.png')] w-full"
+          >
+            <h1 class="font-bold">Benny Chang</h1>
+            <hr />
+            <h1>Position</h1>
+            <div class="flex justify-end">
+              <img src="../assets/icon/in.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="h-96 overflow-hidden relative bg-[url('../assets/img/person1.png')] flex items-end bg-contain bg-no-repeat bg-center"
+        >
+          <div
+            class="mx-5 bg-[#199cd8] opacity-0 hover:flex flex-col p-8 absolute inset-0 hover:opacity-90"
+          >
+            <h1 class="font-bold">Benny Chang</h1>
+            <hr />
+            <h1>Position</h1>
+            <p class="text-xs mt-5">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+              tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+              consequat. Duis autem vel eum iriure dolor in hendrerit in
+              vulputate velit esse molestie
+            </p>
+            <div class="flex justify-end mt-10 -mr-3">
+              <img src="../assets/icon/in.png" alt="" />
+            </div>
+          </div>
+          <div
+            class="mx-5 hover:bg-[#199cd8] -mb-2 py-8 px-5 bg-[url('../assets/icon/bg-img.png')] w-full"
+          >
+            <h1 class="font-bold">Benny Chang</h1>
+            <hr />
+            <h1>Position</h1>
+            <div class="flex justify-end">
+              <img src="../assets/icon/in.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+      <img
+        class="absolute -bottom-12 left-15 z-10"
+        src="../assets/icon/bottom-black.png"
+      />
+    </section>
+    <section class="bg-white relative lg:px-24 md:px-16 sm:px-8 px-8 py-32">
+      <h1 class="text-2xl text-[#199CD8]">NEWS ARTICLES ?</h1>
+      <div class="grid grid-cols-2 gap-16 mt-16">
+        <img src="../assets/img/img.png" alt="">
+        <div>
+          <p class="text-[#199CD8]">January 1, 2022</p>
+          <h1 class="text-[#199CD8] text-3xl font-bold mt-3">HEADLINE 1</h1>
+          <p class="mt-3">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</p>
+           <a
+              class="text-[#199CD8] border-[#199CD8] hover:bg-[#199CD8] hover:text-white mt-8 border flex justify-between items-center px-2 h-8 w-44 relative"
+              href=""
+            >
+              <span class="text-xs">Read more</span>
+              <img
+                class="w-12 hover:invert"
+                src="../assets/icon/arrow-r-blue.png"
+                alt=""
+              />
+            </a>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 mt-8">
+        <div class="mt-16 p-4 hover:border-[#199cd8] border-transparent border">
+          <img src="../assets/img/img.png" alt="">
+          <div class="mt-4">
+            <p class="text-[#199CD8]">January 1, 2022</p>
+            <h1 class="text-[#199CD8] text-3xl font-bold mt-3">HEADLINE 1</h1>
+            <p class="mt-3 text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</p>
+            <a
+            class="text-[#199CD8] border-[#199CD8] hover:bg-[#199CD8] hover:text-white mt-8 border flex justify-between items-center px-2 h-8 w-32 relative"
+            href=""
+          >
+                <span class="text-xs">Read more</span>
+                <img
+                  class="w-8 hover:invert"
+                  src="../assets/icon/arrow-r-blue.png"
+                  alt=""
+                />
+              </a>
+          </div>
+        </div>
+        <div class="mt-16 p-4 hover:border-[#199cd8] border-transparent border">
+          <img src="../assets/img/img.png" alt="">
+          <div class="mt-4">
+            <p class="text-[#199CD8]">January 1, 2022</p>
+            <h1 class="text-[#199CD8] text-3xl font-bold mt-3">HEADLINE 1</h1>
+            <p class="mt-3 text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</p>
+            <a
+            class="text-[#199CD8] border-[#199CD8] hover:bg-[#199CD8] hover:text-white mt-8 border flex justify-between items-center px-2 h-8 w-32 relative"
+            href=""
+          >
+                <span class="text-xs">Read more</span>
+                <img
+                  class="w-8 hover:invert"
+                  src="../assets/icon/arrow-r-blue.png"
+                  alt=""
+                />
+              </a>
+          </div>
+        </div>
+        <div class="mt-16 p-4 hover:border-[#199cd8] border-transparent border">
+          <img src="../assets/img/img.png" alt="">
+          <div class="mt-4">
+            <p class="text-[#199CD8]">January 1, 2022</p>
+            <h1 class="text-[#199CD8] text-3xl font-bold mt-3">HEADLINE 1</h1>
+            <p class="mt-3 text-sm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim</p>
+             <a
+                class="text-[#199CD8] border-[#199CD8] hover:bg-[#199CD8] hover:text-white mt-8 border flex justify-between items-center px-2 h-8 w-32 relative"
+                href=""
+              >
+                <span class="text-xs">Read more</span>
+                <img
+                  class="w-8 hover:invert"
+                  src="../assets/icon/arrow-r-blue.png"
+                  alt=""
+                />
+              </a>
+          </div>
+        </div>
+      </div>
+      <div class="block text-center mt-24">
+        <a
+        class="text-[#199CD8] text-xs text-center border-[#199CD8] hover:bg-[#199CD8] hover:text-white mt-8 border px-4 py-2"
+        href=""
+      >
+      See more news & articles
+      </a>
+      </div>
+    </section>
+    <section
+      class="bg-[#333333] relative lg:px-24 md:px-16 sm:px-8 px-8 pt-12 pb-16 text-white"
+    >
+    <div class="flex flex-row items-center justify-center">
+      <div
+        class="py-2 bg-[#199cd8] px-16 text-sm text-center mr-32 leading-5 text-white"
+      >
+        CONTACT
+        <span class="font-bold">DAX</span>
+        <br />
+        NOW
+      </div>
+      <div
+        class="py-2 bg-[#199cd8] px-16 text-sm text-center leading-5 text-white"
+      >
+        DOWNLOAD
+        <span class="font-bold">DAX</span>
+        <br />
+        COMPANY PROFILE
+      </div>
     </div>
-  </section>
-</body>
-
+    <div class="flex justify-center items-center py-16">
+      <div class="text-xl mr-8">
+        Follow 
+        <span class="font-bold text-[#199cd8]">DAX</span> 
+        on:
+      </div>
+      <div class="grid grid-cols-5 gap-8">
+        <img src="../assets/icon/in.png" alt="">
+        <img src="../assets/icon/in.png" alt="">
+        <img src="../assets/icon/in.png" alt="">
+        <img src="../assets/icon/in.png" alt="">
+        <img src="../assets/icon/in.png" alt="">
+      </div>
+    </div>
+    <p class="text-center text-xs mt-24">
+      © Copyright 2022, PT DATA ARTS XPERIENCE
+    </p>
+    </section>
+    <script src="js/script.js"></script>
+  </body>
 </html>
